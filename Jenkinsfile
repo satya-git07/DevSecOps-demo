@@ -26,10 +26,10 @@ pipeline {
                     // Run SonarQube analysis using sonar-scanner
                     sh """
                         /opt/sonar-scanner/bin/sonar-scanner \
-                            -Dsonar.projectKey="netflix" \
+                            -Dsonar.projectKey="tiktoktoe" \
                             -Dsonar.sources="." \
-                            -Dsonar.host.url="http://192.168.2.109:8081" \
-                            -Dsonar.login="squ_36f70d7ed8c90fec451735aa1a7621519c315194"
+                            -Dsonar.host.url="http://192.168.2.179:9000" \
+                            -Dsonar.login="squ_ed34cb324eb747588d83f3543d713e9378421d68"
                     """
                 }
             }
@@ -40,9 +40,9 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-credentials', toolName: 'docker') {   
-                        sh "docker build -t netflix ."
-                        sh "docker tag netflix:latest satyadockerhub07/netflix:tagname"
-                        sh "docker push satyadockerhub07/netflix:tagname"
+                        sh "docker build -t tiktoktoe ."
+                        sh "docker tag tiktoktoe:latest satyadockerhub07/tiktoktoe:tagname"
+                        sh "docker push satyadockerhub07/tiktoktoe:tagname"
                     }
                 }
             }
@@ -50,7 +50,7 @@ pipeline {
         
           stage("TRIVY"){
                     steps{
-                        sh "trivy image satyadockerhub07/netflix:tagname > trivyimage.txt" 
+                        sh "trivy image satyadockerhub07/tiktoktoe:tagname > trivyimage.txt" 
                     }
                 }
 
