@@ -6,6 +6,7 @@ pipeline {
         ZONE = 'us-west3'
         PROJECT_ID = 'lyrical-bus-452711-c5'
         GIT_BRANCH = 'main'
+        GOOGLE_CREDENTIALS_ID = 'gcp-sa'
         //SONARQUBE_HOST = 'http://34.27.61.33:9000'  // Your SonarQube Server URL
         //SONARQUBE_PROJECT_KEY = 'netflix'  // Your SonarQube Project Key
         //SONARQUBE_TOKEN = 'sqp_03348e71430a3b7a3896ba9d3fd6fb2ce8cea3f9'  // Your SonarQube Token
