@@ -16,6 +16,8 @@ pipeline {
             steps {
                 // Checkout the repository using the defined branch
                 git url: 'https://github.com/satya-git07/DevSecOps-demo.git', branch: "${GIT_BRANCH}"
+                sh "ls -la $GOOGLE_APPLICATION_CREDENTIALS"
+
             }
         }
         
